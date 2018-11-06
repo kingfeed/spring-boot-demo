@@ -13,7 +13,3 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-    dbcp2:
-      test-on-borrow: false
-      test-on-return: false
-      test-while-idle: true
