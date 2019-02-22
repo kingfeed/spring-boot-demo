@@ -20,6 +20,9 @@ public class PersonServiceImpl implements PersonService{
     @Autowired
     private PersonDao personDao;
 
+    /**
+     * 引用自身看看
+     */
     @Autowired
     private PersonService personService;
 
@@ -28,8 +31,13 @@ public class PersonServiceImpl implements PersonService{
         return personDao.findAll();
     }
 
+    /**
+     * 主要看看事务
+     * @param id
+     * @return
+     */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public int updateAgeById(Integer id) {
         personDao.updateAgeById(id);
         updateNameById(id);

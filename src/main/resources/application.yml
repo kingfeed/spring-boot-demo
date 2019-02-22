@@ -28,8 +28,3 @@ spring:
       jdbcTypeForNull: NULL
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
-logging:
-  level:
-    org.mybatis.spring: debug
-    com.k.i.n.g.f.demo: debug
-    com.k.i.n.g.f.demo.dao.*: debug

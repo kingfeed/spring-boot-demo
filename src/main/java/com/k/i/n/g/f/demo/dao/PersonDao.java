@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * @author dongfei
  */
+@Repository
 public interface PersonDao {
     /**
      * 查询所有数据
