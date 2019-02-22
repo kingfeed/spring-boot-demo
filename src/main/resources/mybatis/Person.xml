@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.k.i.n.g.f.demo.dao.PersonDao">
+    <select id="findAll" resultType="com.k.i.n.g.f.demo.entity.Person">
+        select id, name, age from person
+    </select>
+</mapper>
