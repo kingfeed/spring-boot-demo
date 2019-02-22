@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration  scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logback</contextName>
-    <property name="log.path" value="D:/leran/log/demo/logback.log" />
+    <property name="log.path" value="D:/learn/log/demo/logback.log" />
     <!--输出到控制台-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -25,18 +25,11 @@
 
     <root level="info">
         <appender-ref ref="console" />
+        <!-- 输出到文件
         <appender-ref ref="file" />
+        -->
     </root>
 
-    <logger name="org.mybatis" level="info"/>
-    <logger name="org.apache.ibatis" level="info"/>
-    <logger name="org.apache.ibatis.common.jdbc.ScriptRunner" level="info"/>
-    <logger name="org.apache.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="info"/>
-    <logger name="java.sql.Connection" level="info"/>
-    <logger name="java.sql.Statement" level="info"/>
-    <logger name="java.sql.PreparedStatement" level="info"/>
-    <logger name="java.sql.ResultSet" level="info"/>
-    <logger name="org.springframework" level="info"/>
     <logger name="org.mybatis.spring" level="debug"/>
     <logger name="com.k.i.n.g.f.demo" level="debug"/>
     <logger name="com.k.i.n.g.f.demo.dao.*" level="debug"/>
