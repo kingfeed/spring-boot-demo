@@ -28,3 +28,8 @@ spring:
       jdbcTypeForNull: NULL
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
