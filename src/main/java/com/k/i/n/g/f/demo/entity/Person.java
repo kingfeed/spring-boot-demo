@@ -13,4 +13,6 @@ public class Person implements java.io.Serializable{
     private String name;
 
     private Integer age;
+
+    private Integer version;
 }

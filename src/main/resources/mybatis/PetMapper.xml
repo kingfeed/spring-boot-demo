@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.k.i.n.g.f.demo.dao.PetDao">
+    <update id="updatePetById">
+        update pet set name = #{pet.name},version = version+1 where id = #{id} and version = #{pet.version}
+    </update>
+    <insert id="insertPet">
+        insert pet (name,person_id) values (#{name},#{personId})
+    </insert>
+
+    <select id="findAll" resultType="com.k.i.n.g.f.demo.entity.Pet">
+        select id,name,person_id,version from pet
+    </select>
 </mapper>

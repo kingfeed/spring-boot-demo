@@ -4,4 +4,7 @@
     <select id="findAll" resultType="com.k.i.n.g.f.demo.entity.Person">
         select id, name, age from person
     </select>
+    <insert id="insert">
+        insert into person(name,age) value (#{name},#{age});
+    </insert>
 </mapper>

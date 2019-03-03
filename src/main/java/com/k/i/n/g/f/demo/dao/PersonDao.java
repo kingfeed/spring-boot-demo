@@ -18,5 +18,7 @@ public interface PersonDao {
 
     int updateAgeById(Integer id);
 
-    public int updateNameById(Integer id);
+    int updateNameById(Integer id);
+
+    int insert(Person person);
 }
