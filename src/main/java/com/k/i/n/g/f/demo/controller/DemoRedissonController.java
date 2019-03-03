@@ -32,7 +32,7 @@ public class DemoRedissonController {
         }catch (Exception ex){
 
         }finally {
-           //lock.unlock();
+           lock.unlock();
         }
         return 0;
     }
