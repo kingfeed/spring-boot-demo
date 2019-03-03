@@ -26,6 +26,11 @@ spring:
       mapUnderscoreToCamelCase: true
       localCacheScope: SESSION
       jdbcTypeForNull: NULL
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    redisson:
+      config: classpath:redisson.yml
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
 pagehelper:
