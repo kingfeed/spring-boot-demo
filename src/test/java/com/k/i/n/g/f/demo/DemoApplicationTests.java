@@ -2,7 +2,9 @@ package com.k.i.n.g.f.demo;
 
 import com.k.i.n.g.f.demo.dao.PersonDao;
 import com.k.i.n.g.f.demo.dao.PetDao;
+import com.k.i.n.g.f.demo.entity.Person;
 import com.k.i.n.g.f.demo.entity.Pet;
+import com.k.i.n.g.f.demo.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class DemoApplicationTests {
 	private PersonDao personDao;
 	@Autowired
 	private PetDao petDao;
+
+	@Autowired
+	private PersonService personService;
 	@Test
 	public void contextLoads() {
 	}
@@ -63,6 +68,13 @@ public class DemoApplicationTests {
 	@Test
 	public void testFindAllPet(){
 		petDao.findAll();
+	}
+
+	@Test
+	public void testEventListener(){
+		Person person = new Person();
+		person.setName("邓紫棋");
+		personService.insertPerson(person);
 	}
 
 }

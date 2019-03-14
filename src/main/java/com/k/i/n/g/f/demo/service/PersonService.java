@@ -23,4 +23,7 @@ public interface PersonService {
     int updateAgeById(Integer id);
 
     int updateNameById(Integer id);
+
+    int insertPerson(Person person);
+    int insertPersonOnly(Person person);
 }

@@ -2,8 +2,10 @@ package com.k.i.n.g.f.demo.service;
 
 import com.k.i.n.g.f.demo.dao.PersonDao;
 import com.k.i.n.g.f.demo.entity.Person;
+import com.k.i.n.g.f.demo.event.PersonCreatedEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,9 @@ public class PersonServiceImpl implements PersonService{
      */
     @Autowired
     private PersonService personService;
+
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @Override
     public List<Person> findAll() {
@@ -50,5 +55,17 @@ public class PersonServiceImpl implements PersonService{
     @Transactional(rollbackFor = Exception.class,propagation = Propagation.REQUIRES_NEW)
     public int updateNameById(Integer id) {
         return personDao.updateNameById(id);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public int insertPerson(Person person) {
+        int count = personDao.insert(person);
+        applicationEventPublisher.publishEvent(new PersonCreatedEvent(person));
+        return count;
+    }
+    @Override
+    public int insertPersonOnly(Person person) {
+        return personDao.insert(person);
     }
 }
