@@ -21,7 +21,6 @@ public class PersonCreatedEventListener {
     }
 
     @TransactionalEventListener
-    //@Profile("async")
     public void send(PersonCreatedEvent personCreatedEvent){
         System.out.println("send "+personCreatedEvent.getPerson().getName()+" to moon");
         personCreatedEvent.getPerson().setAge(10);
