@@ -1,5 +1,6 @@
 package com.k.i.n.g.f.demo.controller;
 
+import com.k.i.n.g.f.demo.StockTypeEnum;
 import com.k.i.n.g.f.demo.service.HellWorldService;
 import com.k.i.n.g.f.demo.service.Hello;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +25,6 @@ public class HelloWorld {
     @Autowired
     private  HellWorldService helloWorldService;
 
-    @Autowired
-    private Validator validator;
-
     @GetMapping("/hello/jay")
     public String index(Hello hello){
 
@@ -36,10 +34,24 @@ public class HelloWorld {
             helloWorldService.say("hello,boys");
             helloWorldService.say("hello,guys");
             helloWorldService.say("dongfei","hello");
-            helloWorldService.say(null,"hello");
+            // 普通参数值校验
+            //helloWorldService.say(null,"hello");
             //验证无效？？？
             helloWorldService.say(new Hello());
             MDC.clear();
         return "Hello";
+    }
+
+    @GetMapping("/type/jay")
+    public StockType index(){
+        StockType sk = new StockType();
+        sk.setStockType(StockTypeEnum.CG_IN);
+        Hello hello = new Hello();
+        hello.setAge(8);
+        hello.setName("mu");
+        sk.setHello(hello);
+        MDC.put("uuid", UUID.randomUUID().toString());
+        MDC.clear();
+        return sk;
     }
 }
