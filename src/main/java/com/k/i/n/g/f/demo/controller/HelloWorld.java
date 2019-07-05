@@ -1,20 +1,19 @@
 package com.k.i.n.g.f.demo.controller;
 
 import com.k.i.n.g.f.demo.StockTypeEnum;
+import com.k.i.n.g.f.demo.service.BillService;
 import com.k.i.n.g.f.demo.service.HellWorldService;
 import com.k.i.n.g.f.demo.service.Hello;
 import com.mysql.cj.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.validator.constraints.Length;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.json.GsonJsonParser;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import javax.validation.Validator;
-import javax.validation.constraints.NotBlank;
 import java.util.*;
 
 @RestController
@@ -23,6 +22,16 @@ public class HelloWorld {
 
     @Autowired
     private  HellWorldService helloWorldService;
+
+    @Autowired
+    @Qualifier("in")
+    private BillService billService;
+
+    /**
+     * 这个震惊到我了，居然能把同类型接口的@Service给搞到一个以Service component name为key，Service为值的Map里
+     */
+    @Autowired
+    private Map<String,BillService> serviceMap;
 
     @GetMapping("/hello/jay")
     public String index(Hello hello){
@@ -38,7 +47,7 @@ public class HelloWorld {
             //验证无效？？？
             helloWorldService.say(new Hello());
             MDC.clear();
-        GsonJsonParser gson = new GsonJsonParser();
+        //GsonJsonParser gson = new GsonJsonParser();
         return "hello";
     }
 

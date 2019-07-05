@@ -37,8 +37,6 @@ dependencies {
 	implementation 'org.redisson:redisson-spring-boot-starter:3.10.3'
 	compileOnly 'org.projectlombok:lombok'
 	implementation 'org.apache.commons:commons-collections4:4.2'
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.11'
-	implementation 'com.fasterxml.jackson.core:jackson-core:2.8.11'
 	implementation 'com.alibaba:fastjson:1.2.44'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
