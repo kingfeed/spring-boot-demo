@@ -38,3 +38,15 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+##feign 启用okHttp代替 java原生 HttpURLConnection
+feign:
+  okhttp:
+    enable: true
+  httpclient:
+    enable: false
+##zuul
+ribbon:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
