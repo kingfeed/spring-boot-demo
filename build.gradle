@@ -41,10 +41,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compile group: 'io.github.openfeign', name: 'feign-core', version: '9.1.0'
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka', version: '1.4.7.RELEASE'
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.1.2.RELEASE'
 	compile group: 'io.github.openfeign', name: 'feign-httpclient', version: '10.2.3'
 	compile group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.2.3'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-zuul', version: '2.1.2.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-commons', version: '2.1.2.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.1.2.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '2.1.2.RELEASE'
+
 
 
 
