@@ -23,7 +23,7 @@
         </encoder>
     </appender>
 
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="console" />
         <!-- 输出到文件
         <appender-ref ref="file" />

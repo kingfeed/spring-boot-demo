@@ -41,7 +41,7 @@ pagehelper:
 ##feign 启用okHttp代替 java原生 HttpURLConnection
 feign:
   okhttp:
-    enable: true
+    enable: false
   httpclient:
     enable: false
 ##zuul
@@ -49,4 +49,9 @@ ribbon:
   httpclient:
     enabled: false
   okhttp:
-    enabled: true
+    enabled: false
+## 引入eureka包，未启用eureka服务器需要配置不注册,也不需要重试
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
