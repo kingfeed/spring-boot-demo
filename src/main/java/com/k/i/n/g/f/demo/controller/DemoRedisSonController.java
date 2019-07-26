@@ -32,7 +32,7 @@ public class DemoRedisSonController {
         try {
             // 尝试获取锁，等待3秒，持有时间30秒
             boolean locked = lock.tryLock(3L,30L,TimeUnit.SECONDS);
-            //  lock.lock(30L, TimeUnit.SECONDS) 加锁不设置等待时间，一直等待直到获取或者线程被打断;
+            //  lock.lock(30L, TimeUnit.SECONDS); 加锁不设置等待时间，一直等待直到获取或者线程被打断
             if(!locked){
                 log.error("locked on {}",id);
             }
