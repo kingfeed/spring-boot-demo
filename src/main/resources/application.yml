@@ -5,6 +5,8 @@ server:
   servlet:
     context-path: /demo
 spring:
+  application:
+    name: spring-demo-df
   profiles.active: local
   aop:
     proxy-target-class: true
@@ -51,7 +53,21 @@ ribbon:
   okhttp:
     enabled: false
 ## 引入eureka包，未启用eureka服务器需要配置不注册,也不需要重试
+#启用eureka server之后,重新配置eureka,注释掉之前不注册的配置
+#eureka:
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
 eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    #客户需要多长时间发送心跳给eureka服务器（s）
+    lease-renewal-interval-in-seconds: 10
+    #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除（s）
+    lease-expiration-duration-in-seconds: 60
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    #从eureka服务器注册表中获取注册信息的时间间隔（s）
+    registry-fetch-interval-seconds: 10
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
