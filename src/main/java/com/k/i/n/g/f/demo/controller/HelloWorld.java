@@ -1,6 +1,7 @@
 package com.k.i.n.g.f.demo.controller;
 
 import com.k.i.n.g.f.demo.StockTypeEnum;
+import com.k.i.n.g.f.demo.feign.DemoFeignClient;
 import com.k.i.n.g.f.demo.service.BillService;
 import com.k.i.n.g.f.demo.service.HellWorldService;
 import com.k.i.n.g.f.demo.service.Hello;
@@ -24,6 +25,9 @@ public class HelloWorld {
     @Autowired
     @Qualifier("in")
     private BillService billService;
+
+    @Autowired
+    DemoFeignClient demoFeignClient;
 
     /**
      * 这个震惊到我了，居然能把同类型接口的@Service给搞到一个以Service component name为key，Service为值的Map里
@@ -95,13 +99,18 @@ public class HelloWorld {
         abc.add("2");
         return abc;
     }
-    @GetMapping("to1")
+    @GetMapping("/to1")
     public String to1(){
+        return new String("to2");
+    }
+
+    @GetMapping("/to2")
+    public String to2(){
         return new String();
     }
 
-    @GetMapping("to2")
-    public String to2(){
-        return new String();
+    @GetMapping("/to3")
+    public String to3(){
+        return demoFeignClient.printDate();
     }
 }
