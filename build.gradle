@@ -47,5 +47,4 @@ dependencies {
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-commons', version: '2.1.2.RELEASE'
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.1.2.RELEASE'
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '2.1.2.RELEASE'
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zuul',version: '2.1.2.RELEASE'
 }

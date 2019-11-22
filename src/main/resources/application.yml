@@ -73,3 +73,6 @@ eureka:
     registry-fetch-interval-seconds: 10
     service-url:
       defaultZone: http://localhost:8761/eureka/
+#demo:
+ # hello:
+ #   name: ichoice

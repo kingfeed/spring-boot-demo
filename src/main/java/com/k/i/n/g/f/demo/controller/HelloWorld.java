@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -28,6 +29,9 @@ public class HelloWorld {
 
     @Autowired
     DemoFeignClient demoFeignClient;
+
+    @Autowired
+    private Hello hello;
 
     /**
      * 这个震惊到我了，居然能把同类型接口的@Service给搞到一个以Service component name为key，Service为值的Map里
@@ -57,9 +61,9 @@ public class HelloWorld {
     public StockType index(){
         StockType sk = new StockType();
         sk.setStockType(StockTypeEnum.CG_IN);
-        Hello hello = new Hello();
-        hello.setAge(8);
-        hello.setName("mu");
+       // Hello hello = new Hello();
+        //hello.setAge(8);
+        //hello.setName("mu");
         sk.setHello(hello);
         MDC.put("uuid", UUID.randomUUID().toString());
         MDC.clear();
